@@ -2,41 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* BookVerse Pro Design System - Modern book marketplace theme
+All colors MUST be HSL format for consistent theming.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors - Clean and modern */
+    --background: 0 0% 98%;
+    --foreground: 230 15% 15%;
 
+    /* Card system - Elegant elevation */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 230 15% 15%;
 
+    /* Popover system */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 230 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Deep Indigo (#3F51B5) */
+    --primary: 231 48% 48%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 231 48% 42%;
+    --primary-light: 231 48% 85%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Vibrant Orange (#FF5722) */
+    --secondary: 14 100% 57%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 14 100% 50%;
+    --secondary-light: 14 100% 90%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted tones */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8.9% 46.1%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent colors */
+    --accent: 231 48% 95%;
+    --accent-foreground: 231 48% 48%;
 
+    /* Destructive states */
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Border and input styling */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 231 48% 48%;
 
-    --radius: 0.5rem;
+    /* Design system enhancements */
+    --radius: 0.75rem;
+    
+    /* Beautiful gradients for BookVerse */
+    --gradient-primary: linear-gradient(135deg, hsl(231 48% 48%), hsl(231 48% 42%));
+    --gradient-secondary: linear-gradient(135deg, hsl(14 100% 57%), hsl(14 100% 50%));
+    --gradient-hero: linear-gradient(135deg, hsl(231 48% 48%) 0%, hsl(231 48% 42%) 50%, hsl(14 100% 57%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(220 14% 98%) 100%);
+    
+    /* Elegant shadows */
+    --shadow-sm: 0 2px 4px -1px hsl(220 13% 91% / 0.2);
+    --shadow-md: 0 4px 6px -1px hsl(220 13% 91% / 0.3);
+    --shadow-lg: 0 10px 15px -3px hsl(220 13% 91% / 0.4);
+    --shadow-xl: 0 20px 25px -5px hsl(220 13% 91% / 0.5);
+    --shadow-glow: 0 0 20px hsl(231 48% 48% / 0.3);
+    
+    /* Animation properties */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --sidebar-background: 0 0% 98%;
 
