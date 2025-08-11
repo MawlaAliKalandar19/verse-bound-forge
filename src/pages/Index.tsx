@@ -6,12 +6,24 @@ import { BookCard } from "@/components/BookCard";
 import { BookDetail } from "@/components/BookDetail";
 import { books, Book } from "@/data/books";
 import { Badge } from "@/components/ui/badge";
-
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedPriceRange, setSelectedPriceRange] = useState<string | null>(null);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+  const { toast } = useToast();
+
+  const handleSignOut = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      toast({ title: "Sign out failed", description: error.message, variant: "destructive" });
+    } else {
+      toast({ title: "Signed out" });
+    }
+  };
 
   // Filter books based on search and filters
   const filteredBooks = useMemo(() => {
@@ -52,6 +64,9 @@ const Index = () => {
       {/* Header */}
       <header className="bg-gradient-hero text-white">
         <div className="container mx-auto px-4 py-8">
+          <div className="flex justify-end">
+            <Button variant="secondary" onClick={handleSignOut}>Sign out</Button>
+          </div>
           <div className="text-center space-y-4">
             <div className="flex items-center justify-center gap-3 mb-6">
               <BookOpen className="h-10 w-10" />
